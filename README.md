@@ -1,6 +1,6 @@
-# azure-sandbox
+# azure-toolbox
 
-    docker run -d -p 2211:22 -p 5901:5901 rcarmo/azure-sandbox
+    docker run -d -p 2211:22 -p 5901:5901 rcarmo/azure-toolbox
 
 A standalone development environment to work on [Azure][a] solutions, containing:
 
@@ -18,7 +18,7 @@ Login via SSH to port 2211 as `user`, password `changeme`. Once inside, `remote.
 
 ## Quickstart (NO AUTHENTICATION!)
 
-    docker run -d -p 5901:5901 rcarmo/azure-sandbox /quickstart.sh noauth
+    docker run -d -p 5901:5901 rcarmo/azure-toolbox /quickstart.sh noauth
 
 No need to use SSH, no VNC authentication. Great for trying it out -- but a bad idea if you expose Docker ports outside your machine.
 
@@ -26,7 +26,7 @@ If you're using a Mac, then don't use `noauth` and type `changeme` as a VNC pass
 
 ## Typical Session (via SSH)
 
-    > docker run -d -p 2211:22 rcarmo/azure-sandbox
+    > docker run -d -p 2211:22 rcarmo/azure-toolbox
     93b7f70b971468095ba737b1d942131362c9bd7281905f5e8924fd8ddf36300d 
     > ssh -p 2211 -L 5901:localhost:5901 user@localhost
     The authenticity of host '[localhost]:2211 ([127.0.0.1]:2211)' can't be established.
@@ -52,7 +52,7 @@ If you're using a Mac, then don't use `noauth` and type `changeme` as a VNC pass
 
 Just mount a data volume and work inside it. For instance, in Windows:
 
-    docker run -d -p 5901:5901 -v c:/Users/billg/Development:/home/user/Development rcarmo/azure-sandbox /quickstart.sh noauth
+    docker run -d -p 5901:5901 -v c:/Users/billg/Development:/home/user/Development rcarmo/azure-toolbox /quickstart.sh noauth
 
 Preserving browser and editor settings is also doable. Just mount another volume as `/home/user/.config` and you should be set (it's probably best to copy the existing settings across first).
 
@@ -68,7 +68,7 @@ If you don't pass `noauth` to `quickstart.sh` the VNC server will prompt for a p
 
 ## Base Container
 
-This is built upon [desktop-chrome][cd], a separate image I use as base for building similar development sandboxes. You'll find the original `EXPOSE` declaration, SSH setup, user profile skeleton and `quickstart.sh` source there.
+This is built upon [desktop-chrome][cd], a separate image I use as base for building similar development toolboxes. You'll find the original `EXPOSE` declaration, SSH setup, user profile skeleton and `quickstart.sh` source there.
 
 [a]: http://azure.microsoft.com
 [xcli]: https://github.com/azure/azure-xplat-cli

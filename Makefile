@@ -1,4 +1,4 @@
-export IMAGE_NAME=rcarmo/azure-sandbox
+export IMAGE_NAME=rcarmo/azure-toolbox
 default:
 	docker build -t $(IMAGE_NAME) .
 
