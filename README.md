@@ -68,7 +68,7 @@ If you don't pass `noauth` to `quickstart.sh` the VNC server will prompt for a p
 
 ## Base Container
 
-This is built upon [desktop-chrome][cd], a separate image I use as base for building similar development sandboxes. You'll find the original `EXPOSE` declaration, SSH setup and `quickstart.sh` source there.
+This is built upon [desktop-chrome][cd], a separate image I use as base for building similar development sandboxes. You'll find the original `EXPOSE` declaration, SSH setup, user profile skeleton and `quickstart.sh` source there.
 
 [a]: http://azure.microsoft.com
 [xcli]: https://github.com/azure/azure-xplat-cli
