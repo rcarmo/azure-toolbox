@@ -62,7 +62,7 @@ Preserving browser and editor settings is also doable. Just mount another volume
 
 Please note that *this container exposes port 5901*. I ordinarily use VNC exclusively over SSH, but Windows users may not have SSH installed or have trouble setting up the tunnel, so I decided to `EXPOSE` the port. Docker for Windows seems to only bind it locally, but your mileage may vary.
 
-Also, the `quickstart.sh` script should not be considered as a best practice -- if you're going to leave this running someplace, best do it properly.
+Also, the `quickstart.sh` script should not be considered a best practice -- if you're going to leave this running someplace, best do it properly.
 
 If you don't pass `noauth` to `quickstart.sh` the VNC server will prompt for a password (which is `changeme` too), but that's hardly secure in practice - so if you run this container on a machine exposed to the Internet, _don't_ publish port 5901.
 
