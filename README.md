@@ -1,5 +1,12 @@
 # azure-toolbox
 
+[![Docker Stars](https://img.shields.io/docker/stars/rcarmo/azure-toolbox.svg)](https://hub.docker.com/r/rcarmo/azure-toolbox)
+[![Docker Pulls](https://img.shields.io/docker/pulls/rcarmo/azure-toolbox.svg)](https://hub.docker.com/r/rcarmo/azure-toolbox)
+[![](https://images.microbadger.com/badges/image/rcarmo/azure-toolbox.svg)](https://microbadger.com/images/rcarmo/azure-toolbox "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/rcarmo/azure-toolbox.svg)](https://microbadger.com/images/rcarmo/azure-toolbox "Get your own version badge on microbadger.com")
+
+[hub]: https://hub.docker.com/r/rcarmo/azure-toolbox
+
     docker run -d -p 2211:22 -p 5901:5901 rcarmo/azure-toolbox
 
 A standalone development environment to work on [Azure][a] solutions, containing:
