@@ -1,11 +1,6 @@
 FROM rcarmo/desktop-chrome:tiger
 MAINTAINER rcarmo
 ENV DEBIAN_FRONTEND noninteractive
-ARG VCS_REF
-ARG BUILD_DATE
-LABEL org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.vcs-url="https://github.com/rcarmo/azure-toolbox"
 
 # Runtimes
 RUN \
@@ -42,3 +37,11 @@ RUN \
 
 # For Windows users who don't know how to tunnel in via SSH
 EXPOSE 5901
+
+# Labels
+ARG VCS_REF
+ARG BUILD_DATE
+LABEL org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-url="https://github.com/rcarmo/azure-toolbox"
+
