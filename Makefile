@@ -1,6 +1,8 @@
 export IMAGE_NAME=rcarmo/azure-toolbox
 default:
-	docker build -t $(IMAGE_NAME) -f Dockerfile .
+	docker build -t $(IMAGE_NAME) -f Dockerfile \
+		--build-arg VCS_REF=`git rev-parse --short HEAD` \
+		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` .
 
 java:
 	docker build -t $(IMAGE_NAME):java -f Dockerfile_java .
