@@ -18,7 +18,7 @@ A standalone development environment to work on [Azure][a] solutions, containing
 * Java 8 (if you use the `:java` tag)
 * The (old) [Azure Cross-Platform CLI][xcli] 
 * The (new) [Azure CLI][az] 
-* [Visual Studio Code][vc]
+* [Visual Studio Code][vc] 1.8.x
 
 ## Logging In
 
