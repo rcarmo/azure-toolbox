@@ -20,10 +20,11 @@ RUN \
 
 # Azure CLI & Az
 RUN \
-  npm install -g azure-cli && \
-  rm -rf /tmp/npm* && \
-  pip install --upgrade pip pycparser && \
-  pip install azure-cli 
+   npm install -g azure-cli \
+&& rm -rf /tmp/npm* \
+&& pip install --upgrade pip pycparser \
+&& pip install azure-cli \
+&& ln -s /usr/local/bin/az.completion.sh /etc/bash_completion.d/az
 
 # Visual Studio Code (and workaround for running inside VNC)
 RUN \
@@ -35,6 +36,9 @@ RUN \
   sed -i 's/Exec=/Exec=env LD_LIBRARY_PATH\\=\/opt\/patches\/lib /' /usr/share/applications/code.desktop && \
   rm /tmp/vscode.deb
 
+# Add overlay files 
+ADD rootfs /
+
 # For Windows users who don't know how to tunnel in via SSH
 EXPOSE 5901
 
@@ -44,4 +48,3 @@ ARG BUILD_DATE
 LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-url="https://github.com/rcarmo/azure-toolbox"
-
