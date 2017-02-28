@@ -14,10 +14,8 @@ A standalone development environment to work on [Azure][a] solutions, containing
 * An Ubuntu 16.04 (Xenial) userland
 * A simple X11 desktop (using the Infinality font rendering engine) that you can access over VNC
 * Firefox and Google Chrome
-* NodeJS and Python runtimes
 * Java 8 (if you use the `:java` tag)
-* The (old) [Azure Cross-Platform CLI][xcli] 
-* The (new) [Azure CLI][az] 
+* [Azure CLI][az] 2.0
 * [Visual Studio Code][vc] 1.9.x
 
 ## Logging In
@@ -78,9 +76,12 @@ If you don't pass `noauth` to `quickstart.sh` the VNC server will prompt for a p
 
 This is built upon [desktop-chrome][cd], a separate image I use as base for building similar development toolboxes. You'll find the original `EXPOSE` declaration, SSH setup, user profile skeleton and `quickstart.sh` source there.
 
+## Changelog
+
+* 2017-02-28: NodeJS and the old [azure-xplat-cli][xcli] are no longer included, since the [Azure CLI 2.0][az] has been released. Upgraded to Chrome 56, Firefox 51.
+
 [a]: http://azure.microsoft.com
 [xcli]: https://github.com/azure/azure-xplat-cli
 [az]: https://github.com/azure/azure-xplat-cli
 [vc]: http://code.visualstudio.com
 [cd]: https://github.com/rcarmo/docker-templates/tree/master/desktop-chrome
-

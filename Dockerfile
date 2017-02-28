@@ -3,38 +3,30 @@ MAINTAINER rcarmo
 ENV DEBIAN_FRONTEND noninteractive
 
 # Runtimes
-RUN \
-  apt-get update && \
-  apt-get upgrade -y && \
-  apt-get install -y \
-    firefox \
-    libssl-dev \
-    libnotify4 \
-    libffi-dev \
-    nodejs \
-    npm \
-    python-pip \
-    unzip && \
-  cd /usr/bin && ln -s nodejs node && \
-  rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+ && apt-get upgrade -y \
+ && apt-get install -y \
+      firefox \
+      libssl-dev \
+      libnotify4 \
+      libffi-dev \
+      python-pip \
+      unzip \
+ && rm -rf /var/lib/apt/lists/*
 
-# Azure CLI & Az
-RUN \
-   npm install -g azure-cli \
-&& rm -rf /tmp/npm* \
-&& pip install --upgrade pip pycparser \
-&& pip install azure-cli \
-&& ln -s /usr/local/bin/az.completion.sh /etc/bash_completion.d/az
+# Azure CLI 2.0 (Az)
+RUN pip install --upgrade pip pycparser \
+ && pip install azure-cli \
+ && ln -s /usr/local/bin/az.completion.sh /etc/bash_completion.d/az
 
 # Visual Studio Code (and workaround for running inside VNC)
-RUN \
-  wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb && \
-  dpkg -i /tmp/vscode.deb && \
-  mkdir -p /opt/patches/lib && \
-  cp /usr/lib/x86_64-linux-gnu/libxcb.so.1 /opt/patches/lib && \
-  sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /opt/patches/lib/libxcb.so.1 && \
-  sed -i 's/Exec=/Exec=env LD_LIBRARY_PATH\\=\/opt\/patches\/lib /' /usr/share/applications/code.desktop && \
-  rm /tmp/vscode.deb
+RUN wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb \
+ && dpkg -i /tmp/vscode.deb \
+ && mkdir -p /opt/patches/lib \
+ && cp /usr/lib/x86_64-linux-gnu/libxcb.so.1 /opt/patches/lib \
+ && sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /opt/patches/lib/libxcb.so.1 \
+ && sed -i 's/Exec=/Exec=env LD_LIBRARY_PATH\\=\/opt\/patches\/lib /' /usr/share/applications/code.desktop \
+ && rm /tmp/vscode.deb
 
 # Add overlay files 
 ADD rootfs /
