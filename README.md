@@ -72,8 +72,8 @@ For instance, this is what I do to have the toolbox access my local Docker daemo
     #IMAGE=rcarmo/azure-toolbox:java
     docker run -d \
         -v /var/run/docker.sock:/var/run/docker.sock \
-        -v c:/Users/rucarmo/OneDrive/Development:/home/user/Development \
-        -v c:/Users/rucarmo/_ssh:/home/user/.ssh \
+        -v c:/Users/billg/_ssh:/home/user/.ssh \
+        -v c:/Users/billg/OneDrive/Development:/home/user/Development \
         -p 5901:5901 $IMAGE /quickstart.sh noauth
 
 [Visual Studio Code][vc] stores its settings in `~/.vscode`, so you can also mount that onto a host path (mind you, sharing configuration files with your host is not necessarily a good idea).
