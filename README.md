@@ -20,6 +20,7 @@ A standalone development environment to work on [Azure][a] solutions, containing
 * Java 8 (if you use the `:java` tag)
 * [Azure CLI][az] 2.0
 * [Visual Studio Code][vc] 1.10.x
+* The Docker CLI tools
 
 ## Logging In
 
