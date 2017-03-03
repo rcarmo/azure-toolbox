@@ -9,6 +9,9 @@
 
     docker run -d -p 2211:22 -p 5901:5901 rcarmo/azure-toolbox
 
+
+![screenshot](screenshot.jpg)
+
 A standalone development environment to work on [Azure][a] solutions, containing:
 
 * An Ubuntu 16.04 (Xenial) userland
