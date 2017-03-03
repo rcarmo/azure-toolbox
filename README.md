@@ -65,6 +65,16 @@ Just mount a data volume and work inside it. For instance, in Windows:
 
 Preserving browser and editor settings is also doable. Just mount another volume as `/home/user/.config` and you should be set (it's probably best to copy the existing settings across first).
 
+For instance, this is what I do to have the toolbox access my local Docker daemon, my local SSH keys and my development folder:
+
+    IMAGE=toolbox
+    #IMAGE=rcarmo/azure-toolbox:java
+    docker run -d \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        -v c:/Users/rucarmo/OneDrive/Development:/home/user/Development \
+        -v c:/Users/rucarmo/_ssh:/home/user/.ssh \
+        -p 5901:5901 $IMAGE /quickstart.sh noauth
+
 [Visual Studio Code][vc] stores its settings in `~/.vscode`, so you can also mount that onto a host path (mind you, sharing configuration files with your host is not necessarily a good idea).
 
 ## Security Considerations
