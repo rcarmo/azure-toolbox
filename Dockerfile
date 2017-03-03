@@ -2,7 +2,7 @@ FROM rcarmo/desktop-chrome:tiger
 MAINTAINER rcarmo
 ENV DEBIAN_FRONTEND noninteractive
 
-# Runtimes
+# Runtimes (& re-patching of Chrome launcher)
 RUN apt-get update \
  && apt-get upgrade -y \
  && apt-get install -y \
@@ -13,6 +13,7 @@ RUN apt-get update \
       libffi-dev \
       python-pip \
       unzip \
+ && sed -i 's/google-chrome-stable/google-chrome-stable --no-sandbox /g' /usr/share/applications/google-chrome.desktop \
  && rm -rf /var/lib/apt/lists/*
 
 # Azure CLI 2.0 (Az)
@@ -39,6 +40,11 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
  && apt-get install -y docker-ce \
  && usermod -a -G staff user \
  && rm -rf /var/lib/apt/lists/*
+
+ # Go 1.8
+ RUN wget -O /tmp/go.tgz https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz \
+  && tar -C /usr/local -xzf /tmp/go.tgz \
+  && rm -f /tmp/go.tgz
 
 # Add overlay files 
 ADD rootfs /
