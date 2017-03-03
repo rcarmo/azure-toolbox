@@ -29,6 +29,17 @@ RUN wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb \
  && sed -i 's/Exec=/Exec=env LD_LIBRARY_PATH\\=\/opt\/patches\/lib /' /usr/share/applications/code.desktop \
  && rm /tmp/vscode.deb
 
+# Docker CLI
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
+ && add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable" \
+ && apt-get update \
+ && apt-get install -y docker-ce \
+ && usermod -a -G staff user \
+ && rm -rf /var/lib/apt/lists/*
+
 # Add overlay files 
 ADD rootfs /
 

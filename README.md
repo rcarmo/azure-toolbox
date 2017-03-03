@@ -17,7 +17,7 @@ A standalone development environment to work on [Azure][a] solutions, containing
 * An Ubuntu 16.04 (Xenial) userland
 * A simple X11 desktop (using the Infinality font rendering engine) that you can access over VNC
 * Firefox and Google Chrome
-* Java 8 (if you use the `:java` tag)
+* Java 8 and [Leiningen][lein] (if you use the `:java` tag)
 * [Azure CLI][az] 2.0
 * [Visual Studio Code][vc] 1.10.x
 * The Docker CLI tools
@@ -99,3 +99,4 @@ This is built upon [desktop-chrome][cd], a separate image I use as base for buil
 [az]: https://github.com/azure/azure-xplat-cli
 [vc]: http://code.visualstudio.com
 [cd]: https://github.com/rcarmo/docker-templates/tree/master/desktop-chrome
+[lein]: https://leiningen.org/
