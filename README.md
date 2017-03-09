@@ -93,6 +93,7 @@ This is built upon [desktop-chrome][cd], a separate image I use as base for buil
 
 ## Changelog
 
+* 2017-03-09: Refreshed browsers and VSCode
 * 2017-03-03: Added [Leiningen][lein], Go 1.8 and the Docker CLI tools 
 * 2017-02-28: NodeJS and the old [azure-xplat-cli][xcli] are no longer included, since the [Azure CLI 2.0][az] has been released. Upgraded to Chrome 56, Firefox 51.
 
