@@ -40,13 +40,13 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
  && usermod -a -G staff user \
  && rm -rf /var/lib/apt/lists/*
 
- # Docker Compose
- RUN curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
+# Docker Compose
+RUN curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
   && chmod +x /usr/local/bin/docker-compose \
   && curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 
- # Go 1.8
- RUN wget -O /tmp/go.tgz https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz \
+# Go 1.8
+RUN wget -O /tmp/go.tgz https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz \
   && tar -C /usr/local -xzf /tmp/go.tgz \
   && rm -f /tmp/go.tgz
 
