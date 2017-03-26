@@ -16,8 +16,8 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 # Azure CLI 2.0 (Az)
-RUN pip install --upgrade pip pycparser \
- && pip install azure-cli \
+RUN pip install --no-cache-dir --upgrade pip pycparser \
+ && pip install --no-cache-dir --upgrade azure-cli \
  && ln -s /usr/local/bin/az.completion.sh /etc/bash_completion.d/az
 
 # Visual Studio Code (and workaround for running inside VNC)
