@@ -30,10 +30,8 @@ In addition, with the `:java` tag, you get:
 And on top of that, with the (experimental) `:ml` tag, you get a full-blown deep learning environment:
 
 * Continuum Anaconda 4.2.0 (Python 3.5)
-* CNTK 2.0 (built [for CPU only](https://github.com/Microsoft/CNTK/blob/master/Tools/docker/CNTK-CPUOnly-Image/Dockerfile))
+* CNTK 2.0 Beta 15 (built for CPU only)
 * Tensorflow 1.0.1 (built for CPU only)
-
-You can also install the complete CNTK + Kaldi environment through the `:cntk` tag (even more experimental)
 
 ## Logging In
 

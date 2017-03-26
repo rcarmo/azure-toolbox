@@ -11,11 +11,6 @@ java:
 		     --build-arg BUILD_DATE=$(BUILD_DATE) \
 		     -t $(IMAGE_NAME):java -f Dockerfile_java .
 
-cntk:
-	docker build --build-arg VCS_REF=$(VCS_REF) \
-		     --build-arg BUILD_DATE=$(BUILD_DATE) \
-		     -t $(IMAGE_NAME):cntk -f Dockerfile_cntk .
-
 ml:
 	docker build --build-arg VCS_REF=$(VCS_REF) \
 		     --build-arg BUILD_DATE=$(BUILD_DATE) \
@@ -32,10 +27,9 @@ rmi:
 push:
 	-docker push $(IMAGE_NAME)
 	-docker push $(IMAGE_NAME):java
-	-docker push $(IMAGE_NAME):cntk
 	-docker push $(IMAGE_NAME):ml
 
-whole-enchilada: base java cntk ml push
+whole-enchilada: base java ml push
 
 clean:
 	-docker rm -v $$(docker ps -a -q -f status=exited)
