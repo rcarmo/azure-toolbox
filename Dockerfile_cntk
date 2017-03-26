@@ -133,11 +133,34 @@ RUN /root/anaconda3/bin/conda env create -p /root/anaconda3/envs/ml-py35/ --file
 # Enable it
 ENV PATH /root/anaconda3/envs/ml-py35/bin:$PATH
 
+# Install Kaldi Speech Recognition (updated to 5.0 branch)
+ENV KALDI_VERSION=68cee21
+ENV KALDI_PATH /usr/local/kaldi-$KALDI_VERSION
+
+RUN mv /bin/sh /bin/sh.orig && \
+   ln -s -f /bin/bash /bin/sh && \
+   mkdir $KALDI_PATH && \
+   wget --no-verbose -O - https://github.com/kaldi-asr/kaldi/archive/$KALDI_VERSION.tar.gz | tar -xzf - --strip-components=1 -C $KALDI_PATH && \
+   cd $KALDI_PATH && \
+   cd tools && \
+   perl -pi -e 's/^# (OPENFST_VERSION = 1.4.1)$/\1/' Makefile && \
+   ./extras/check_dependencies.sh && \
+   make -j $(nproc) all && \
+   cd ../src && \
+   ./configure --openblas-root=/usr/local/openblas --shared && \
+   make -j $(nproc) depend && \
+   make -j $(nproc) all && \
+# Remove some unneeded stuff in $KALDI_PATH to reduce size
+   find $KALDI_PATH -name '*.o' -print0 | xargs -0 rm && \
+   for dir in $KALDI_PATH/src/*bin; do make -C $dir clean; done && \
+   mv -f /bin/sh.orig /bin/sh
+
 WORKDIR /cntk
 
 # Build CNTK
 RUN git clone --depth=1 -b master https://github.com/Microsoft/CNTK.git . && \
     CONFIGURE_OPTS="\
+      --with-kaldi=${KALDI_PATH} \
       --with-py35-path=/root/anaconda3/envs/ml-py35" && \
     git submodule update --init Source/Multiverso && \
     mkdir -p build/cpu/release && \
@@ -149,6 +172,14 @@ RUN git clone --depth=1 -b master https://github.com/Microsoft/CNTK.git . && \
     cd build-mkl/cpu/release && \
     ../../../configure $CONFIGURE_OPTS --with-mkl=/usr/local/CNTKCustomMKL && \
     make -j"$(nproc)" all
+
+RUN cd Examples/Image/DataSets/CIFAR-10 && \
+    python install_cifar10.py && \
+    cd ../../../..
+
+RUN cd Examples/Image/DataSets/MNIST && \
+    python install_mnist.py && \
+    cd ../../../..
 
 ENV PATH=/cntk/build/cpu/release/bin:$PATH PYTHONPATH=/cntk/bindings/python LD_LIBRARY_PATH=/cntk/bindings/python/cntk/libs:$LD_LIBRARY_PATH
 
