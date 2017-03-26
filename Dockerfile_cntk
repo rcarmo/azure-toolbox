@@ -130,9 +130,6 @@ RUN wget -q https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh &&
 ADD ./conda/conda-linux-ml-py35-environment.yml /tmp/conda-linux-ml-py35-environment.yml
 RUN /root/anaconda3/bin/conda env create -p /root/anaconda3/envs/ml-py35/ --file /tmp/conda-linux-ml-py35-environment.yml
 
-# Enable it
-ENV PATH /root/anaconda3/envs/ml-py35/bin:$PATH
-
 # Install Kaldi Speech Recognition (updated to 5.0 branch)
 ENV KALDI_VERSION=68cee21
 ENV KALDI_PATH /usr/local/kaldi-$KALDI_VERSION
@@ -154,6 +151,9 @@ RUN mv /bin/sh /bin/sh.orig && \
    find $KALDI_PATH -name '*.o' -print0 | xargs -0 rm && \
    for dir in $KALDI_PATH/src/*bin; do make -C $dir clean; done && \
    mv -f /bin/sh.orig /bin/sh
+
+# Enable Anaconda
+ENV PATH /root/anaconda3/envs/ml-py35/bin:$PATH
 
 WORKDIR /cntk
 
