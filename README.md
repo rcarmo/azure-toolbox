@@ -14,14 +14,24 @@
 
 A standalone development environment to work on [Azure][a] solutions, containing:
 
-* An Ubuntu 16.04 (Xenial) userland
+* An Ubuntu 16.04 LTS (Xenial) userland
 * A simple X11 desktop (using the Infinality font rendering engine) that you can access over VNC
 * Firefox and Google Chrome
-* Java 8 and [Leiningen][lein] (if you use the `:java` tag)
 * [Azure CLI][az] 2.0
 * [Visual Studio Code][vc] 1.10.x
 * Go 1.8
 * The Docker CLI tools
+
+In addition, with the `:java` tag, you get:
+
+* Java 8 
+* [Leiningen][lein] 
+
+And on top of that, with the (experimental) `:ml` tag, you get a full-blown deep learning environment:
+
+* Continuum Anaconda 4.3.1 (Python 3.6)
+* CNTK 2.0 (built [for CPU only](https://github.com/Microsoft/CNTK/blob/master/Tools/docker/CNTK-CPUOnly-Image/Dockerfile))
+* Tensorflow 1.0.1 (built for CPU only)
 
 ## Logging In
 
@@ -93,6 +103,7 @@ This is built upon [desktop-chrome][cd], a separate image I use as base for buil
 
 ## Changelog
 
+* 2017-03-26: New refresh (from new base image with updated VNC server), CNTK support
 * 2017-03-09: Refreshed browsers and VSCode
 * 2017-03-03: Added [Leiningen][lein], Go 1.8 and the Docker CLI tools 
 * 2017-02-28: NodeJS and the old [azure-xplat-cli][xcli] are no longer included, since the [Azure CLI 2.0][az] has been released. Upgraded to Chrome 56, Firefox 51.
