@@ -103,6 +103,7 @@ This is built upon [desktop-chrome][cd], a separate image I use as base for buil
 
 ## Changelog
 
+* 2017-05-01: Firefox 53, VS Code 1.11.2, Tensorflow 1.1.0, CNTK 2.0rc2, general refresh
 * 2017-04-07: Go 1.8.1, VS Code 1.11.1, Keras, general refresh
 * 2017-03-26: New refresh (from new base image with updated VNC server), CNTK support
 * 2017-03-09: Refreshed browsers and VSCode
