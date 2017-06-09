@@ -18,8 +18,8 @@ A standalone development environment to work on [Azure][a] solutions, containing
 * A simple X11 desktop (using the Infinality font rendering engine) that you can access over VNC
 * Firefox and Google Chrome
 * [Azure CLI][az] 2.0
-* [Visual Studio Code][vc] 1.11.x
-* Go 1.8.1
+* [Visual Studio Code][vc]
+* Go 1.8
 * The Docker CLI tools
 
 In addition, with the `:java` tag, you get:
