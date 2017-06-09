@@ -45,8 +45,8 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-c
   && chmod +x /usr/local/bin/docker-compose \
   && curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 
-# Go 1.8.1
-RUN wget -O /tmp/go.tgz https://storage.googleapis.com/golang/go1.8.1.linux-amd64.tar.gz \
+# Go 1.8.3
+RUN wget -O /tmp/go.tgz https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz \
   && tar -C /usr/local -xzf /tmp/go.tgz \
   && rm -f /tmp/go.tgz
 
