@@ -6,9 +6,9 @@ RUN apt-get update \
  && apt-get install -y openmpi-bin \
  && rm -rf /var/lib/apt/lists/*
 
-# Anaconda 4.2.0 (Python 3.5)
+# Anaconda 4.4.0 (Python 3.6)
 USER user
-RUN wget -q https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh -O /tmp/anaconda.sh \
+RUN wget -q https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh -O /tmp/anaconda.sh \
  && sudo -u user /bin/bash /tmp/anaconda.sh -p /home/user/.anaconda -b \
  && rm /tmp/anaconda.sh
 
@@ -22,7 +22,8 @@ RUN pip install --no-cache-dir --ignore-installed --upgrade \
       notebook \
       nbbrowserpdf \
       tensorflow \
-      https://cntk.ai/PythonWheel/CPU-Only/cntk-2.0-cp35-cp35m-linux_x86_64.whl \
+      mxnet \
+      https://cntk.ai/PythonWheel/CPU-Only/cntk-2.0-cp36-cp36m-linux_x86_64.whl \
       keras \
  && echo 'export PATH="/home/user/.anaconda/bin:$PATH"' >> /home/user/.bashrc \
  && conda install -y -c conda-forge jupyter_contrib_nbextensions

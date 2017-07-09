@@ -29,9 +29,10 @@ In addition, with the `:java` tag, you get:
 
 And on top of that, with the (experimental) `:ml` tag, you get a full-blown deep learning environment:
 
-* Continuum Anaconda 4.2.0 (Python 3.5)
-* CNTK 2.0 Beta 15 (built for CPU only)
-* Tensorflow 1.0.1 (built for CPU only)
+* Continuum Anaconda (Python 3.6)
+* CNTK (built for CPU only)
+* Tensorflow (built for CPU only)
+* Apache MXNet
 
 ## Logging In
 
@@ -103,6 +104,7 @@ This is built upon [desktop-chrome][cd], a separate image I use as base for buil
 
 ## Changelog
 
+* 2017-07-09: Anaconda 4.4.0 (Python 3.6), Apache MXNet
 * 2017-06-09: VS Code 1.13, CNTK 2.0, Chrome 59, general refresh
 * 2017-05-01: Firefox 53, VS Code 1.11.2, Tensorflow 1.1.0, CNTK 2.0rc2, general refresh
 * 2017-04-07: Go 1.8.1, VS Code 1.11.1, Keras, general refresh
