@@ -104,6 +104,7 @@ This is built upon [desktop-chrome][cd], a separate image I use as base for buil
 
 ## Changelog
 
+* 2017-08-14: VS Code 1.15
 * 2017-08-04: General refresh
 * 2017-07-12: VS Code 1.14
 * 2017-07-09: Anaconda 4.4.0 (Python 3.6), Apache MXNet
