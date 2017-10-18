@@ -104,7 +104,7 @@ This is built upon [desktop-chrome][cd], a separate image I use as base for buil
 
 ## Changelog
 
-* 2017-10-18: General refresh
+* 2017-10-18: General refresh, moved to OpenJDK 9
 * 2017-08-17: General refresh
 * 2017-08-14: VS Code 1.15
 * 2017-08-04: General refresh
