@@ -23,7 +23,7 @@ RUN pip install --no-cache-dir --ignore-installed --upgrade \
       nbbrowserpdf \
       tensorflow \
       mxnet \
-      https://cntk.ai/PythonWheel/CPU-Only/cntk-2.0-cp36-cp36m-linux_x86_64.whl \
+      https://cntk.ai/PythonWheel/CPU-Only/cntk-2.2-cp36-cp36m-linux_x86_64.whl \
       keras \
  && echo 'export PATH="/home/user/.anaconda/bin:$PATH"' >> /home/user/.bashrc \
  && conda install -y -c conda-forge jupyter_contrib_nbextensions
