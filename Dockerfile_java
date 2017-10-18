@@ -5,10 +5,8 @@ ENV DEBIAN_FRONTEND noninteractive
 # Java 9
 RUN apt-get update \
  && apt-get dist-upgrade -y \
- && apt-get install -y openjdk-9-jdk \
- && apt-get autoremove -y \
- && rm -rf /var/lib/apt/lists/* \
- && rm -rf /var/cache/oracle-jdk8-installer
+ && apt-get install -y openjdk-9-jdk-headless \
+ && rm -rf /var/lib/apt/lists/*
 
 # Leiningen
 RUN wget -O /usr/local/bin/lein https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein \

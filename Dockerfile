@@ -13,7 +13,6 @@ RUN apt-get update \
       python-pip \
       unzip \
  && sed -i 's/google-chrome-stable/google-chrome-stable --no-sandbox /g' /usr/share/applications/google-chrome.desktop \
- && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/*
 
 # Azure CLI 2.0 (Az)
@@ -39,7 +38,6 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
  && apt-get update \
  && apt-get install -y docker-ce \
  && usermod -a -G docker user \
- && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/*
 
 # Docker Compose
