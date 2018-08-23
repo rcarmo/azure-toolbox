@@ -2,8 +2,6 @@
 
 [![Docker Stars](https://img.shields.io/docker/stars/rcarmo/azure-toolbox.svg)](https://hub.docker.com/r/rcarmo/azure-toolbox)
 [![Docker Pulls](https://img.shields.io/docker/pulls/rcarmo/azure-toolbox.svg)](https://hub.docker.com/r/rcarmo/azure-toolbox)
-[![](https://images.microbadger.com/badges/image/rcarmo/azure-toolbox.svg)](https://microbadger.com/images/rcarmo/azure-toolbox "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/rcarmo/azure-toolbox.svg)](https://microbadger.com/images/rcarmo/azure-toolbox "Get your own version badge on microbadger.com")
 
 [hub]: https://hub.docker.com/r/rcarmo/azure-toolbox
 
@@ -11,6 +9,12 @@
 
 
 ![screenshot](screenshot.jpg)
+
+# NOTE: THIS IS IN HIATUS DUE TO THE INTRODUCTION OF AZURE CLOUD SHELL
+
+Since the Azure Portal now provides a built-in HTML5 terminal with a working CLI and the option to run other tools like Terraform, this image is not going to be actively maintained moving forward, and is kept as a reference for further builds.
+
+# About
 
 A standalone development environment to work on [Azure][a] solutions, containing:
 
